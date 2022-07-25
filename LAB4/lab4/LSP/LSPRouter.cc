@@ -7,18 +7,15 @@ LSPRouter::LSPRouter(int totalNodes,int maxNeighs) {
     this->LSPCount = 0;
     this->totalNodes = totalNodes;
     this->maxNeighs = maxNeighs;
+    this->neighCount = 0;
 
     adjMatrix = (int**)calloc(totalNodes ,sizeof(int*));
     lspDB = (LSP**)malloc(totalNodes * sizeof(LSP*));
-    pathStore = (int**)malloc(totalNodes * sizeof(int*));
 
     for (int i = 0; i < totalNodes; ++i){
         adjMatrix[i] = (int*)calloc (totalNodes , sizeof(int));
         lspDB[i] = (LSP*)malloc (totalNodes * sizeof(LSP));
         lspDB[i] =  NULL;
-
-        pathStore[i] = (int*)malloc (totalNodes * sizeof(int));
-        pathStore[i]= NULL;
     }
 
     neighList = (int*)malloc (maxNeighs *sizeof(int));
@@ -30,12 +27,10 @@ LSPRouter::~LSPRouter() {
     for (int i = 0; i < totalNodes; ++i){
         free(this->adjMatrix[i]);
         free(this->lspDB[i]);
-        free(this->pathStore[i]);
     }
     free(this->adjMatrix);
     free(this->lspDB);
     free(this->neighList);
-    free(this->pathStore);
 }
 
 void LSPRouter::setRouterID(int id){
@@ -104,13 +99,10 @@ void LSPRouter::printAdjMatrix() {
   }
 }
 
-int ** LSPRouter::getPathStore(){
-    return this->pathStore;
+int LSPRouter::getNeighCount(){
+ return neighCount;
 }
 
-void LSPRouter::setPathStore(int** pathStore){
-    this->pathStore = pathStore;
-}
-void  LSPRouter::modPathStore(int i , int* path){
-    this->pathStore[i] = path;
+void LSPRouter::addNeighCount(){
+    neighCount++;
 }

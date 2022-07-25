@@ -10,10 +10,10 @@ private:
     int** adjMatrix;
     int* neighList;
     int maxNeighs;
+    int neighCount;
     int totalNodes;
     LSP** lspDB;
     int LSPCount;
-    int ** pathStore;
 
 public:
     LSPRouter(int totalNodes,int maxNeighs);
@@ -32,9 +32,8 @@ public:
     void addToLSPDB(LSP* lsp);
     int getLSPCounter();
     bool isLSPGoodToAdd(LSP* lsp);
-    int ** getPathStore();
-    void setPathStore(int** pathStore);
-    void modPathStore(int i , int* path);
+    int getNeighCount();
+    void addNeighCount();
 };
 
 #endif /* LSP_LSPROUTER_H_ */

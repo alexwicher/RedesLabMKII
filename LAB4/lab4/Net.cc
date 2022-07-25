@@ -13,8 +13,8 @@
 #define LSP_BYTE_SIZE 16 + 16*MAX_INTERFACES
 
 
-#define TOTAL_NODES 8
-#define INTERFACES 2
+#define TOTAL_NODES 57
+#define INTERFACES 4
 
 #include <string.h>
 #include <omnetpp.h>
@@ -149,40 +149,29 @@ int Net::routing(int dest) {
 
 void Net::floodLSP(LSP *lsp,int mode){
     this->bubble(std::to_string(LSPRouter_props->getLSPCounter()).c_str());
-    if(!mode and LSPRouter_props->getLspDB()[lsp->getRouterID()] != NULL){
+    if(!mode and LSPRouter_props->getLspDB()[lsp->getRouterID()] != NULL)
         return;
-    }
 
     if(LSPRouter_props->isLSPGoodToAdd(lsp)){
         LSPRouter_props->addToLSPDB(lsp);
         int **  neighs = lsp->getNeighCostList();
-        for(int i = 0; i < lsp->getMaxNeighs() ;i++){
-            if(neighs[i][1] != 0) {
+        for(int i = 0; i < lsp->getMaxNeighs() ;i++)
+            if(neighs[i][1] != 0)
                 LSPRouter_props->modAdjMatrix(lsp->getRouterID(),neighs[i][0],neighs[i][1]);
-            }
-        }
+
         if(LSPRouter_props->getLSPCounter() == TOTAL_NODES){
-            LSPRouter_props->printAdjMatrix();
             cMessage* adjMatrixReady = new cMessage("ready to send",7);
             netGrapthUp = true;
-
             dijkstraModule->dijkstra(LSPRouter_props->getAdjMatrix(), nodeID);
-
-
-
             send(adjMatrixReady, "toApp$o");
         }
     }
 
-    for(int i = 0;i < gateSize("toLnk$o") ;i++){
-        if(this->getParentModule()->gate("toNod$o", i)->isConnected()){
-            if(mode or std::strcmp(lsp->getArrivalGate()->getBaseName(),"toLnk") == 0){
-                if(mode or lsp->getArrivalGate()->getIndex() != i){
+    for(int i = 0;i < gateSize("toLnk$o") ;i++)
+        if(this->getParentModule()->gate("toNod$o", i)->isConnected())
+            if(mode or std::strcmp(lsp->getArrivalGate()->getBaseName(),"toLnk") == 0)
+                if(mode or lsp->getArrivalGate()->getIndex() != i)
                     send(lsp->dup(), "toLnk$o", i);
-                }
-            }
-        }
-    }
 }
 void Net::handleMessage(cMessage *msg) {
     Packet *pkt = (Packet *) msg;
@@ -202,11 +191,9 @@ void Net::handleMessage(cMessage *msg) {
             simtime_t delay = simTime() - msg->getCreationTime();
             int neighID = LSPRouter_props->getNeighList()[pkt->getArrivalGate()->getIndex()];
             LSPRouter_props->modAdjMatrix(nodeID,neighID, (int) std::ceil(ECHO_WEIGHT_FACTOR*delay.dbl()));
-
-
             echo_count++;
 //            lsp->setByteLength(LSP_BYTE_SIZE);
-            if(echo_count == INTERFACES){
+            if(echo_count == LSPRouter_props->getNeighCount()){
                 LSP *lsp = new LSP(TOTAL_NODES,INTERFACES);
                 lsp->setRouterID(nodeID);
                 for(int i =0;i < INTERFACES;i++){
@@ -234,6 +221,7 @@ void Net::handleMessage(cMessage *msg) {
     if(pkt->getKind() == 5){ // Hello-Ack
         LSPRouter_props->modNeighList(pkt->getArrivalGate()->getIndex(), pkt->getSource());
         LSPRouter_props->modAdjMatrix(nodeID,pkt->getSource(),1);
+        LSPRouter_props->addNeighCount();
         Packet *echo = new Packet("echo",3);
         echo->setByteLength(ECHO_BYTE_SIZE);
         echo->setSource(this->getParentModule()->getIndex());
