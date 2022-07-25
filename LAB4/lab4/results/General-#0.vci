@@ -1,0 +1,106 @@
+file 10827 1658754277                                           
+version 3
+run General-0-20220725-10:03:52-16715
+attr configname General
+attr datetime 20220725-10:03:52
+attr datetimef 20220725-100352
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Network
+attr processid 16715
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network Network
+config sim-time-limit 200s
+config Network.node[0].app.interArrivalTime exponential(1)
+config Network.node[0].app.packetByteSize 125000
+config Network.node[0].app.destination 5
+config Network.node[2].app.interArrivalTime exponential(1)
+config Network.node[2].app.packetByteSize 125000
+config Network.node[2].app.destination 5
+config NetworkStar.node[0].app.interArrivalTime exponential(1)
+config NetworkStar.node[0].app.packetByteSize 125000
+config NetworkStar.node[0].app.destination 50
+
+vector 0 Network.node[0].lnk[0] "Buffer Size" ETV
+vector 1 Network.node[0].lnk[1] "Buffer Size" ETV
+vector 2 Network.node[1].lnk[0] "Buffer Size" ETV
+vector 3 Network.node[1].lnk[1] "Buffer Size" ETV
+vector 4 Network.node[2].lnk[0] "Buffer Size" ETV
+vector 5 Network.node[2].lnk[1] "Buffer Size" ETV
+vector 6 Network.node[3].lnk[0] "Buffer Size" ETV
+vector 7 Network.node[3].lnk[1] "Buffer Size" ETV
+vector 8 Network.node[4].lnk[0] "Buffer Size" ETV
+vector 9 Network.node[4].lnk[1] "Buffer Size" ETV
+vector 10 Network.node[5].lnk[0] "Buffer Size" ETV
+vector 11 Network.node[5].lnk[1] "Buffer Size" ETV
+vector 12 Network.node[6].lnk[0] "Buffer Size" ETV
+vector 13 Network.node[6].lnk[1] "Buffer Size" ETV
+vector 14 Network.node[7].lnk[0] "Buffer Size" ETV
+vector 15 Network.node[7].lnk[1] "Buffer Size" ETV
+vector 16 Network.node[0].app Delay_destine_node ETV
+vector 17 Network.node[2].app Delay_destine_node ETV
+vector 18 Network.node[0].net packetHops ETV
+vector 19 Network.node[0].net Delay_per_node ETV
+vector 20 Network.node[2].net packetHops ETV
+vector 21 Network.node[2].net Delay_per_node ETV
+0	2018 380 1 700 0 1.899616388484 22 0 1 11 11
+1	2398 253 2 588 0 0.000956 16 0 1 8 8
+2	2651 287 3 662 0 0.001056 18 0 1 9 9
+3	2938 254 4 590 0 0.000956 16 0 1 8 8
+4	3192 288 5 663 0 0.001056 18 0 1 9 9
+5	3480 300 6 699 0 1.860660212075 18 0 1 9 9
+6	3780 288 7 664 0 0.001056 18 0 1 9 9
+7	4068 254 8 578 0 0.000956 16 0 1 8 8
+8	4322 288 9 657 0 0.001056 18 0 1 9 9
+9	4610 255 10 580 0 0.000956 16 0 1 8 8
+10	4865 307 11 658 0 0.001056 18 0 1 9 9
+11	5172 271 12 582 0 0.000956 16 0 1 8 8
+12	5443 307 13 659 0 0.001056 18 0 1 9 9
+13	5750 271 14 584 0 0.000956 16 0 1 8 8
+14	6021 307 15 660 0 0.001056 18 0 1 9 9
+15	6328 270 16 586 0 0.000956 16 0 1 8 8
+16	6598 18 649 649 0.001056 0.001056 1 0 0 0 0
+17	6616 18 653 653 0.001056 0.001056 1 0 0 0 0
+18	6634 48 690 694 0.899616388484 1.822839519955 2 0 0 0 0
+19	6682 48 690 694 0.899616388484 1.822839519955 2 0 0 0 0
+20	6730 24 697 697 1.860660212075 1.860660212075 1 0 0 0 0
+21	6754 24 697 697 1.860660212075 1.860660212075 1 0 0 0 0
+vector 22 Network.node[7].net packetHops ETV
+vector 23 Network.node[7].net Delay_per_node ETV
+vector 24 Network.node[3].net packetHops ETV
+vector 25 Network.node[3].net Delay_per_node ETV
+vector 26 Network.node[6].net packetHops ETV
+vector 27 Network.node[6].net Delay_per_node ETV
+vector 28 Network.node[4].net packetHops ETV
+vector 29 Network.node[4].net Delay_per_node ETV
+vector 30 Network.node[5].net packetHops ETV
+vector 31 Network.node[5].net Delay_per_node ETV
+0	7248 253 725 847 3.774384855839 7.774384855839 11 0 3 12 22
+5	7501 228 707 864 2.647861352057 8.364028325843 10 0 1 5 5
+7	7729 228 711 842 2.860760212075 7.565084706924 10 0 1 5 5
+9	7957 228 735 870 3.860860212075 8.565184706924 10 0 1 5 5
+12	8185 240 721 857 2.899816388484 7.774584855839 10 0 1 5 5
+14	8425 288 703 852 1.899716388484 7.774484855839 12 0 1 6 6
+18	8713 144 724 807 3.774384855839 6.199111740855 6 0 0 0 0
+19	8857 144 724 807 3.774384855839 6.199111740855 6 0 0 0 0
+20	9001 119 706 862 2.647861352057 8.364028325843 5 0 0 0 0
+21	9120 119 706 862 2.647861352057 8.364028325843 5 0 0 0 0
+22	9239 144 702 850 1.899716388484 7.774484855839 6 2 2 12 24
+23	9383 205 702 850 1.899716388484 7.774484855839 6 1.0001 1.986916923215 7.985090392011 11.37456969599
+24	9588 119 710 840 2.860760212075 7.565084706924 5 2 2 10 20
+25	9707 160 710 840 2.860760212075 7.565084706924 5 1.0001 1.424580803117 5.637779663135 6.5011541392424
+26	9867 120 720 855 2.899816388484 7.774584855839 5 3 3 15 45
+27	9987 168 720 855 2.899816388484 7.774584855839 5 2.0002 2.472145086937 10.998673468796 24.425277458518
+28	10155 119 734 868 3.860860212075 8.565184706924 5 3 3 15 45
+29	10274 160 734 868 3.860860212075 8.565184706924 5 2.0002 2.424680803117 10.638279663135 22.778841071445
+30	10434 167 744 859 3.899916388484 7.774684855839 7 4 4 28 112
+31	10601 225 744 859 3.899916388484 7.774684855839 7 3.0003 3.44925151333 21.740627241877 67.696942701294
+

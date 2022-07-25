@@ -1,0 +1,61 @@
+file 146661 1658003434                                          
+version 2
+run General-0-20220716-17:30:13-1953
+attr configname General
+attr datetime 20220716-17:30:13
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Network
+attr processid 1953
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param Network.node[0].app.interArrivalTime exponential(1)
+param Network.node[0].app.packetByteSize 125000
+param Network.node[0].app.destination 5
+param Network.node[2].app.interArrivalTime exponential(1)
+param Network.node[2].app.packetByteSize 125000
+param Network.node[2].app.destination 5
+
+vector 0 Network.node[0].net packetHops ETV
+vector 1 Network.node[0].net Delay_per_node ETV
+vector 2 Network.node[0].lnk[0] "Buffer Size" ETV
+vector 3 Network.node[2].net packetHops ETV
+vector 4 Network.node[2].net Delay_per_node ETV
+vector 5 Network.node[2].lnk[0] "Buffer Size" ETV
+vector 6 Network.node[7].net packetHops ETV
+vector 7 Network.node[7].net Delay_per_node ETV
+vector 8 Network.node[7].lnk[0] "Buffer Size" ETV
+vector 9 Network.node[1].net packetHops ETV
+vector 10 Network.node[1].net Delay_per_node ETV
+vector 11 Network.node[1].lnk[0] "Buffer Size" ETV
+vector 12 Network.node[6].net packetHops ETV
+vector 13 Network.node[6].net Delay_per_node ETV
+vector 14 Network.node[6].lnk[0] "Buffer Size" ETV
+vector 15 Network.node[5].net packetHops ETV
+vector 16 Network.node[5].net Delay_per_node ETV
+vector 17 Network.node[5].app Delay_destine_node ETV
+0	1506 9749 2 5585 0.898560388484 198.663423511276 387 0 3 558 1674
+1	11255 12046 2 5585 0.898560388484 198.663423511276 387 0 11.408666141614 981.47413328364 6311.2133381011
+2	23301 15594 3 5612 0.898560388484 199.773328855839 586 0 190 54451 6821233
+3	38895 4748 9 5605 1.859604212075 199.581142627156 189 0 0 0 0
+4	43643 4748 9 5605 1.859604212075 199.581142627156 189 0 0 0 0
+5	48391 9502 10 5607 1.859604212075 199.64888529358 377 0 10 1241 6461
+6	57893 5001 14 5615 1.898660388484 199.773428855839 198 2 4 578 1884
+7	62894 7720 14 5615 1.898660388484 199.773428855839 198 1.0001 103.72291532521 9834.2823538561 650541.10676696
+8	70614 10002 15 5617 1.898660388484 199.773428855839 396 0 1 198 198
+9	80616 4731 22 5609 2.859704212075 199.64898529358 187 2 2 374 748
+10	85347 7214 22 5609 2.859704212075 199.64898529358 187 1.0001 10.408566141614 796.45563328364 4535.1061785772
+11	92561 9836 23 5611 2.859704212075 199.64898529358 374 0 1 187 187
+12	102397 5176 32 5620 2.898760388484 199.773528855839 197 3 5 771 3213
+13	107573 7881 32 5620 2.898760388484 199.773528855839 197 2.0002 104.5642977967 9927.5791385309 659442.76799432
+14	115454 10354 33 5622 2.898760388484 199.773528855839 394 0 1 197 197
+15	125808 5154 55 5624 3.898860388484 199.773628855839 196 4 6 964 4936
+16	130962 7849 55 5624 3.898860388484 199.773628855839 196 3.0003 105.5643977967 10027.195182068 670009.47889675
+17	138811 7849 56 5625 3.898860388484 199.773628855839 196 3.0003 105.5643977967 10027.195182068 670009.47889675
+
