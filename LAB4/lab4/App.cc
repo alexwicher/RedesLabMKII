@@ -12,7 +12,10 @@ private:
     cMessage *sendMsgEvent;
     cStdDev delayStats;
     cOutVector delayVector;
-    bool networkUp = false;
+    bool networkUp;
+    cOutVector pktsReceivedVector;
+    cStdDev pktsReceivedStats;
+
 public:
     App();
     virtual ~App();
@@ -34,8 +37,11 @@ App::~App() {
 
 void App::initialize() {
     // Initialize statistics
+    networkUp = false;
     delayStats.setName("TotalDelay");
     delayVector.setName("Delay_destine_node");
+    pktsReceivedVector.setName("pkts_received");
+    pktsReceivedStats.setName("TotalPktsReceived");
 }
 
 void App::finish() {
@@ -50,10 +56,10 @@ void App::handleMessage(cMessage *msg) {
         networkUp = true;
         sendMsgEvent = new cMessage("sendEvent");
         scheduleAt(par("interArrivalTime") + simTime(), sendMsgEvent);
+        return;
     }
 
-    if(networkUp){
-        if (msg == sendMsgEvent) {
+        if (msg == sendMsgEvent and networkUp) {
             // create new packet
             Packet *pkt = new Packet("data",1);
             pkt->setByteLength(par("packetByteSize"));
@@ -74,11 +80,11 @@ void App::handleMessage(cMessage *msg) {
             simtime_t delay = simTime() - msg->getCreationTime();
             delayStats.collect(delay);
             delayVector.record(delay);
+
+            pktsReceivedVector.record(1);
+            pktsReceivedStats.collect(1);
             // delete msg
             delete (msg);
         }
-    } else {
-
-    }
 
 }

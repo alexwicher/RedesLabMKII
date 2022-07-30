@@ -13,8 +13,9 @@
 #define LSP_BYTE_SIZE 16 + 16*MAX_INTERFACES
 
 
-#define TOTAL_NODES 57
-#define INTERFACES 4
+#define TOTAL_NODES 8
+#define INTERFACES 2
+
 
 #include <string.h>
 #include <omnetpp.h>
@@ -33,7 +34,6 @@ private:
     bool netGrapthUp = false;
     cOutVector packetHopVector;
     cOutVector delayVectorPerNode;
-    cOutVector tooOldPktVector;
     void registerStats(Packet *pkt);
     void flood(Packet *pkt,int mode);
     void floodLSP(LSP* lsp, int mode);
@@ -71,7 +71,6 @@ Net::~Net() {
 void Net::initialize() {
     packetHopVector.setName("packetHops");
     delayVectorPerNode.setName("Delay_per_node");
-    tooOldPktVector.setName("killed_by_hops");
     helloEvent = new cMessage("helloEvent");
     nodeID = this->getParentModule()->getIndex();
 
@@ -244,7 +243,6 @@ void Net::handleMessage(cMessage *msg) {
             registerStats(pkt);
 
             if(pkt->getHopCount() > TOTAL_NODES + 1){
-                tooOldPktVector.record(1);
                 delete(msg);
                 return;
             }
