@@ -1,0 +1,47 @@
+file 118706 1659208618                                          
+version 3
+run General-0-20220730-16:16:49-21457
+attr configname General
+attr datetime 20220730-16:16:49
+attr datetimef 20220730-161649
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Network
+attr processid 21457
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network Network
+config sim-time-limit 200s
+config Network.node[{0,1,2,3,4,6,7}].app.interArrivalTime exponential(1)
+config Network.node[{0,1,2,3,4,6,7}].app.packetByteSize 125000
+config Network.node[{0,1,2,3,4,6,7}].app.destination 5
+config NetworkStar.node[0].app.interArrivalTime exponential(1)
+config NetworkStar.node[0].app.packetByteSize 125000
+config NetworkStar.node[0].app.destination 50
+
+vector 0 Network.node[7].lnk[0] "Buffer Size" ETV
+vector 1 Network.node[6].lnk[0] "Buffer Size" ETV
+vector 2 Network.node[0].lnk[0] "Buffer Size" ETV
+vector 3 Network.node[4].lnk[0] "Buffer Size" ETV
+vector 4 Network.node[5].app Delay ETV
+vector 5 Network.node[5].app pkts_received ETV
+vector 6 Network.node[1].lnk[0] "Buffer Size" ETV
+vector 7 Network.node[3].lnk[0] "Buffer Size" ETV
+vector 8 Network.node[2].lnk[0] "Buffer Size" ETV
+0	1247 16182 3 9646 0.353159139138 199.898660388484 605 0 205 60519 8287239
+1	17429 15018 7 9649 0.485128163722 199.898760388484 564 0 164 46382 5122782
+2	32447 16112 14 9657 0.898560388484 199.951745335884 602 0 202 59493 8082117
+3	48559 9578 18 9637 0.977006426393 199.612436582109 380 0 11 1180 6226
+4	58137 7781 33 9634 1.485228163722 199.485228163722 199 1.0001 184.2298320045 12842.037911981 1213974.2639321
+5	65918 5043 33 9634 1.485228163722 199.485228163722 199 1 1 199 199
+6	70961 15859 36 9660 1.859604212075 199.998596976994 593 0 195 57855 7538333
+7	86820 15193 43 9638 1.878964054203 199.878964054203 570 0 173 53625 6465517
+8	102013 16692 52 9650 1.951545335884 199.951545335884 622 0 225 69651 10404023
+

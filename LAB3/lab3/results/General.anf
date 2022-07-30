@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <analysis version="2">
     <inputs>
-        <input pattern="/lab3/results/General-*.vec"/>
-        <input pattern="/lab3/results/General-*.sca"/>
+        <input pattern="/lab3-new/results/General-*.vec"/>
+        <input pattern="/lab3-new/results/General-*.sca"/>
     </inputs>
     <charts/>
 </analysis>

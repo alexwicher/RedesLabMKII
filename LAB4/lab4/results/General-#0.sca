@@ -1,8 +1,8 @@
 version 3
-run General-0-20220725-10:03:52-16715
+run General-0-20220730-16:02:16-20103
 attr configname General
-attr datetime 20220725-10:03:52
-attr datetimef 20220725-100352
+attr datetime 20220730-16:02:16
+attr datetimef 20220730-160216
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Network
-attr processid 16715
+attr processid 20103
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -240,8 +240,8 @@ par Network.node[0].app typename "\"App\""
 par Network.node[0].app interArrivalTime exponential(1)
 par Network.node[0].app packetByteSize 125000
 par Network.node[0].app destination 5
-scalar Network.node[0].app "Average delay" 0
-scalar Network.node[0].app "Number of packets" 1
+scalar Network.node[0].app "Average delay" -nan
+scalar Network.node[0].app "Number of packets" 0
 par Network.node[0].net typename "\"Net\""
 par Network.node[0].lnk[0] typename "\"Lnk\""
 par Network.node[0].lnk[1] typename "\"Lnk\""
@@ -251,8 +251,8 @@ par Network.node[1].app typename "\"App\""
 par Network.node[1].app interArrivalTime 0
 par Network.node[1].app packetByteSize 125
 par Network.node[1].app destination 0
-scalar Network.node[1].app "Average delay" -nan
-scalar Network.node[1].app "Number of packets" 0
+scalar Network.node[1].app "Average delay" 0
+scalar Network.node[1].app "Number of packets" 1
 par Network.node[1].net typename "\"Net\""
 par Network.node[1].lnk[0] typename "\"Lnk\""
 par Network.node[1].lnk[1] typename "\"Lnk\""
@@ -262,8 +262,8 @@ par Network.node[2].app typename "\"App\""
 par Network.node[2].app interArrivalTime exponential(1)
 par Network.node[2].app packetByteSize 125000
 par Network.node[2].app destination 5
-scalar Network.node[2].app "Average delay" 0
-scalar Network.node[2].app "Number of packets" 1
+scalar Network.node[2].app "Average delay" -nan
+scalar Network.node[2].app "Number of packets" 0
 par Network.node[2].net typename "\"Net\""
 par Network.node[2].lnk[0] typename "\"Lnk\""
 par Network.node[2].lnk[1] typename "\"Lnk\""
@@ -273,8 +273,8 @@ par Network.node[3].app typename "\"App\""
 par Network.node[3].app interArrivalTime 0
 par Network.node[3].app packetByteSize 125
 par Network.node[3].app destination 0
-scalar Network.node[3].app "Average delay" -nan
-scalar Network.node[3].app "Number of packets" 0
+scalar Network.node[3].app "Average delay" 0
+scalar Network.node[3].app "Number of packets" 1
 par Network.node[3].net typename "\"Net\""
 par Network.node[3].lnk[0] typename "\"Lnk\""
 par Network.node[3].lnk[1] typename "\"Lnk\""
@@ -284,8 +284,8 @@ par Network.node[4].app typename "\"App\""
 par Network.node[4].app interArrivalTime 0
 par Network.node[4].app packetByteSize 125
 par Network.node[4].app destination 0
-scalar Network.node[4].app "Average delay" -nan
-scalar Network.node[4].app "Number of packets" 0
+scalar Network.node[4].app "Average delay" 0
+scalar Network.node[4].app "Number of packets" 1
 par Network.node[4].net typename "\"Net\""
 par Network.node[4].lnk[0] typename "\"Lnk\""
 par Network.node[4].lnk[1] typename "\"Lnk\""
@@ -295,8 +295,8 @@ par Network.node[5].app typename "\"App\""
 par Network.node[5].app interArrivalTime 0
 par Network.node[5].app packetByteSize 125
 par Network.node[5].app destination 0
-scalar Network.node[5].app "Average delay" -nan
-scalar Network.node[5].app "Number of packets" 0
+scalar Network.node[5].app "Average delay" 3.3701270807275
+scalar Network.node[5].app "Number of packets" 21
 par Network.node[5].net typename "\"Net\""
 par Network.node[5].lnk[0] typename "\"Lnk\""
 par Network.node[5].lnk[1] typename "\"Lnk\""
@@ -306,8 +306,8 @@ par Network.node[6].app typename "\"App\""
 par Network.node[6].app interArrivalTime 0
 par Network.node[6].app packetByteSize 125
 par Network.node[6].app destination 0
-scalar Network.node[6].app "Average delay" -nan
-scalar Network.node[6].app "Number of packets" 0
+scalar Network.node[6].app "Average delay" 0
+scalar Network.node[6].app "Number of packets" 1
 par Network.node[6].net typename "\"Net\""
 par Network.node[6].lnk[0] typename "\"Lnk\""
 par Network.node[6].lnk[1] typename "\"Lnk\""
@@ -317,8 +317,8 @@ par Network.node[7].app typename "\"App\""
 par Network.node[7].app interArrivalTime 0
 par Network.node[7].app packetByteSize 125
 par Network.node[7].app destination 0
-scalar Network.node[7].app "Average delay" -nan
-scalar Network.node[7].app "Number of packets" 0
+scalar Network.node[7].app "Average delay" 0
+scalar Network.node[7].app "Number of packets" 1
 par Network.node[7].net typename "\"Net\""
 par Network.node[7].lnk[0] typename "\"Lnk\""
 par Network.node[7].lnk[1] typename "\"Lnk\""
