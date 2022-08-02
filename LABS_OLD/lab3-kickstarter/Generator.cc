@@ -1,4 +1,4 @@
-#ifndef GENERATOR
+    #ifndef GENERATOR
 #define GENERATOR
 
 #include <string.h>
@@ -10,6 +10,7 @@ class Generator : public cSimpleModule {
 private:
     cMessage *sendMsgEvent;
     cStdDev transmissionStats;
+    cOutVector pktGenVector;
 public:
     Generator();
     virtual ~Generator();
@@ -30,9 +31,10 @@ Generator::~Generator() {
 }
 
 void Generator::initialize() {
+    pktGenVector.setName("pktGen");
     transmissionStats.setName("TotalTransmissions");
     // create the send packet
-    sendMsgEvent = new cMessage("sendEvent");
+    sendMsgEvent = new cPacket("sendEvent");
     // schedule the first event at random time
     scheduleAt(par("generationInterval"), sendMsgEvent);
 }
@@ -47,6 +49,7 @@ void Generator::handleMessage(cMessage *msg) {
     pkt->setByteLength(par("packetByteSize"));
     // send to the output
     send(pkt, "out");
+    pktGenVector.record(1);
 
     // compute the new departure time
     simtime_t departureTime = simTime() + par("generationInterval");
