@@ -17,13 +17,6 @@ import multiprocessing as mp
 
 
 def handle_conn(client_con):
-    # while True:
-    #     recv_data = client_con.s.recv(4096)
-    #     if recv_data:
-    #         if client_con.handle(recv_data):
-    #             break
-    #     else:
-    #         break
 
     while True:
         recv_data = client_con.s.recv(1024)

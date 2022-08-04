@@ -238,6 +238,8 @@ class TestHFTPHard(TestBase):
         status, message = c.read_response_line(TIMEOUT)
         self.assertEqual(status, constants.CODE_OK,
                          "El servidor no entendio un quit enviado de a un caracter por vez")
+        # ALEX AGREGO ESTO (Para defensa oral, si yo mando quit ya cerre la connexion) Mirar linea 34
+        self.client.connected = False
 
     def test_multiple_commands(self):
         c = self.new_client()
